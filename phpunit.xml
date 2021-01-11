@@ -1,0 +1,23 @@
+<phpunit bootstrap="tests/bootstrap.php" colors="true"
+         beStrictAboutTestsThatDoNotTestAnything="true"
+         beStrictAboutOutputDuringTests="true"
+         beStrictAboutChangesToGlobalState="true"
+         printerClass="\Drupal\Tests\Listeners\HtmlOutputPrinter">
+
+  <php>
+    <!-- Set error reporting to E_ALL. -->
+    <ini name="error_reporting" value="32767"/>
+    <ini name="memory_limit" value="-1"/>
+    <env name="SIMPLETEST_BASE_URL" value="http://localhost"/>
+    <env name="SIMPLETEST_DB" value="sqlite://localhost/sites/default/files/database.sqlite"/>
+    <env name="BROWSERTEST_OUTPUT_DIRECTORY" value="/opt/drupal/web/sites/default/files"/>
+  </php> 
+  <testsuites>
+    <testsuite name="unit">
+      <directory>*/tests/src/Unit</directory>
+    </testsuite>
+    <testsuite name="functional">
+      <directory>*/tests/src/Functional</directory>
+    </testsuite>
+  </testsuites>
+</phpunit>
